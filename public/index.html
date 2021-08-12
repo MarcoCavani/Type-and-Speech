@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Varela+Round" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Type and Speach</title>
+</head>
+
+
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Varela Round", sans-serif;
+
+    }
+
+    textarea {
+
+
+    }
+
+    i{
+        font-size: 3rem !important;
+    }
+
+   
+
+    .container {
+        /* background-image: url("img/pop2.png"), url("img/pop.png");
+
+        background-position: right top, left top;
+        background-repeat: no-repeat; */
+        max-width: 768px;
+    }
+
+    .txt {
+        width: 75%;
+        margin: 0 auto;
+    }
+
+    .rate-element {
+        text-align: left;
+        padding: 0rem 6rem;
+    }
+
+    input[type=range] {
+        -webkit-appearance: none;
+        margin: 18px 0;
+        width: 100%;
+    }
+
+    input[type=range]:focus {
+        outline: none;
+    }
+
+    input[type=range]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 8.4px;
+        cursor: pointer;
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        background: #333333;
+        border-radius: 1.3px;
+        border: 0.2px solid #010101;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        border: 1px solid #000000;
+        height: 36px;
+        width: 16px;
+        border-radius: 3px;
+        background: #ffffff;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -14px;
+    }
+
+    input[type=range]:focus::-webkit-slider-runnable-track {
+        background: #333333;
+    }
+
+    input[type=range]::-moz-range-track {
+        width: 100%;
+        height: 8.4px;
+        cursor: pointer;
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        background: #333333;
+        border-radius: 1.3px;
+        border: 0.2px solid #010101;
+    }
+
+    input[type=range]::-moz-range-thumb {
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        border: 1px solid #000000;
+        height: 36px;
+        width: 16px;
+        border-radius: 3px;
+        background: #ffffff;
+        cursor: pointer;
+    }
+
+    input[type=range]::-ms-track {
+        width: 100%;
+        height: 8.4px;
+        cursor: pointer;
+        background: transparent;
+        border-color: transparent;
+        border-width: 16px 0;
+        color: transparent;
+    }
+
+    input[type=range]::-ms-fill-lower {
+        background: #333333;
+        border: 0.2px solid #010101;
+        border-radius: 2.6px;
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    }
+
+    input[type=range]::-ms-fill-upper {
+        background: #333333;
+        border: 0.2px solid #010101;
+        border-radius: 2.6px;
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    }
+
+    input[type=range]::-ms-thumb {
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        border: 1px solid #000000;
+        height: 36px;
+        width: 16px;
+        border-radius: 3px;
+        background: #ffffff;
+        cursor: pointer;
+    }
+
+    input[type=range]:focus::-ms-fill-lower {
+        background: #333333;
+    }
+
+    input[type=range]:focus::-ms-fill-upper {
+        background: #333333;
+    }
+</style>
+
+<body>
+    <div class="container text-center p-4">
+        <div id="logo"><img src="img/world.png" alt="logo MWD.WORLD" class="mb-4"></div>
+        <h1 class="font-weight-bold">M <span class="text-danger">W</span> D - Type and Speach</h1>
+
+
+        <p class="font-weight-bold">Type some speech below and press return to hear it.</p>
+        <form action="#">
+            <textarea class="txt form-control form-control-lg mt-5 mb-5" placeholder="Type anything.."></textarea>
+
+
+            <div class="rate-element">
+                <label for="rate" class="mr-1">Rate</label><input type="range" min="0.5" max="2" value="1" step="0.1"
+                    id="rate" class="w-100">
+                <div class="badge badge-danger float-right mr-1 rate-value">1</div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="rate-element">
+                <label for="pitch" class="mr-1">Pitch </label><input type="range" min="0.5" max="2" value="1" step="0.1"
+                    id="pitch" class="w-100">
+                <div class="badge badge-danger float-right mr-1 rate-value">1</div>
+                <div class="clearfix"></div>
+            </div>
+
+            <select name="#" id="#">
+
+            </select> <br>
+
+
+            <button data-brackets-id="27" class="btn btn-light btn-lg btn-block"><i class="m-4 fa fa-volume-up"></i></button>
+            <!-- <i class="fa fa-bullhorn ">
+            <input type="submit" value="Play" class="m-4 fa fa-bullhorn" aria-hidden="true">
+        </i> -->
+        </form>
+    </div>
+
+    <script>
+
+        var synth = window.speechSynthesis;
+
+        var inputForm = document.querySelector("form");
+        var inputText = document.querySelector(".txt");
+        var voiceSelect = document.querySelector("select");
+
+
+        var pitch = document.querySelector("#pitch");
+        var pitchValue = document.querySelector(".pitch-value");
+        var rate = document.querySelector("#rate");
+        var rateValue = document.querySelector(".rate-value");
+        var voice = [];
+
+        function populateVoiceList() {
+            voices = synth.getVoices();
+
+            for (i = 0; i < voices.length; i++) {
+                var option = document.createElement('option');
+                option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
+
+
+
+                option.setAttribute('data-lang', voices[i].lang);
+                option.setAttribute('data-name', voices[i].name);
+                voiceSelect.appendChild(option);
+            }
+        }
+
+        populateVoiceList();
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = populateVoiceList;
+        }
+
+        inputForm.onsubmit = function (event) {
+            event.preventDefault();
+
+            var utterThis = new SpeechSynthesisUtterance(inputText.value);
+            var selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
+            for (i = 0; i < voices.length; i++) {
+                if (voices[i].name === selectedOption) {
+                    utterThis.voice = voices[i];
+                }
+            }
+            utterThis.pitch = pitch.value;
+            utterThis.rate = rate.value;
+            synth.speak(utterThis);
+            utterThis.onpause = function (event) {
+                var char = event.utterance.text.charAt(event.charIndex);
+                console.log('Speech paused at character ' + event.charIndex + ' of "' +
+                    event.utterance.text + '", which is "' + char + '".');
+            }
+            inputText.blur();
+        }
+        pitch.onchange = function () {
+            pitchValue.textContent = pitch.value;
+        }
+
+        rate.onchange = function () {
+            rateValue.textContent = rate.value;
+        }
+
+
+
+    </script>
+</body>
+
+</html>
