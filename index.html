@@ -36,7 +36,7 @@
         margin-right: 1rem;
     }
 
-    i {
+    .f-3 {
         font-size: 3rem !important;
     }
 
@@ -182,6 +182,9 @@
         /* background-image: url(img/wave.gif); */
         margin: 0 0 0 7rem;
     }
+    .f-1{
+       font-size: 1rem; 
+    }
 </style>
 
 <body>
@@ -191,7 +194,7 @@
         </h1>
 
 
-        <p class="font-weight-bold">Type some speech below and press return to hear it.</p>
+        <p class="font-weight-bold">Type some speech below and press <i class="text-danger f-1 fa fa-volume-down"></i> button to hear it.</p>
         <form action="#">
             <textarea class="txt form-control form-control-lg mt-5 mb-5" placeholder="Type anything.."></textarea>
 
@@ -215,7 +218,7 @@
             </select> <br>
 
 
-            <button class="btn-style w-20 mx-auto mt-4"><i class="m-4 fa fa-volume-up"></i></button>
+            <button class="btn-style w-20 mx-auto mt-4"><i class="f-3 m-4 fa fa-volume-up"></i></button>
             <div class="wave"></div>
             <!-- <i class="fa fa-bullhorn ">
             <input type="submit" value="Play" class="m-4 fa fa-bullhorn" aria-hidden="true">
