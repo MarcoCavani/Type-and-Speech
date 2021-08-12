@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=600">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,33 +25,56 @@
 
     }
 
-    textarea {
-
+    body {
+        background: url("img/background.jpg") center no-repeat;
 
     }
 
-    i{
+    img {
+        width: 6rem;
+        float: left;
+        margin-right: 1rem;
+    }
+
+    i {
         font-size: 3rem !important;
     }
 
-   
+    select {
+        width: 10rem;
+    }
+
 
     .container {
-        /* background-image: url("img/pop2.png"), url("img/pop.png");
 
-        background-position: right top, left top;
-        background-repeat: no-repeat; */
-        max-width: 768px;
+        max-width: 600px;
+        border: 2px solid;
+        border-radius: 3%;
+        box-shadow: 1px 1px 15px black;
+        background-color: #ffffff;
+        margin-top: 2rem;
+
+
     }
+
+
+
+    .btn-style {
+        border-radius: 100%;
+        border: 2px solid red;
+    }
+
+
 
     .txt {
         width: 75%;
-        margin: 0 auto;
+        border: 2px solid;
     }
 
     .rate-element {
         text-align: left;
-        padding: 0rem 6rem;
+        width: 75%;
+
     }
 
     input[type=range] {
@@ -150,12 +174,20 @@
     input[type=range]:focus::-ms-fill-upper {
         background: #333333;
     }
+
+    .wave {
+        width: 64%;
+        height: 8rem;
+        /* background-image: url(img/wave.gif); */
+        margin: 0 0 0 7rem;
+    }
 </style>
 
 <body>
-    <div class="container text-center p-4">
+    <div class="container  p-4">
         <div id="logo"><img src="img/world.png" alt="logo MWD.WORLD" class="mb-4"></div>
-        <h1 class="font-weight-bold">M <span class="text-danger">W</span> D - Type and Speach</h1>
+        <h1 class="font-weight-bold"><span class="text-danger">T</span>ype and <span class="text-danger">S</span>peach
+        </h1>
 
 
         <p class="font-weight-bold">Type some speech below and press return to hear it.</p>
@@ -182,7 +214,8 @@
             </select> <br>
 
 
-            <button data-brackets-id="27" class="btn btn-light btn-lg btn-block"><i class="m-4 fa fa-volume-up"></i></button>
+            <button class="btn-style w-20 mx-auto mt-4"><i class="m-4 fa fa-volume-up"></i></button>
+            <div class="wave"></div>
             <!-- <i class="fa fa-bullhorn ">
             <input type="submit" value="Play" class="m-4 fa fa-bullhorn" aria-hidden="true">
         </i> -->
@@ -226,8 +259,20 @@
 
         inputForm.onsubmit = function (event) {
             event.preventDefault();
+            if (inputText.value !== "") {
+                var wave = document.querySelector(".wave")
+                wave.style.background = "url(img/wave.gif)"
+            }
 
+            // Get speak text
             var utterThis = new SpeechSynthesisUtterance(inputText.value);
+           
+            // Speak end
+            utterThis.onend = e => {
+                console.log('Done speaking...');
+                wave.style.background = '#ffffff';
+            };
+            
             var selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
             for (i = 0; i < voices.length; i++) {
                 if (voices[i].name === selectedOption) {
