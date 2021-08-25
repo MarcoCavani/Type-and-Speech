@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <link rel="icon" href="img/favicon.png">
-    <title>Type and Speech</title>
+    <title>Type to Speech</title>
 </head>
 
 
@@ -27,7 +28,7 @@
     }
 
     body {
-        background: url("img/background.jpg") center no-repeat;
+/*        background: url("img/background.jpg") center no-repeat;*/
 
     }
 
@@ -186,18 +187,25 @@
     .f-1{
        font-size: 1rem; 
     }
+    .info{
+        font-size: 2rem !important;
+        color: red;
+        padding: 1rem
+        
+    }
 </style>
 
 <body>
     <div class="container  p-4">
+       <i class="fa fa-info-circle info"></i>
         <a href="https://mwd.world" target="blank">
         <div id="logo"><img src="img/world.png" alt="logo MWD.WORLD" class="mb-4"></div></a>
-        <h1 class="font-weight-bold"><span class="text-danger">T</span>ype and <span class="text-danger">S</span>peach
+        <h1 class="font-weight-bold"><span class="text-danger">T</span>ext to <span class="text-danger">S</span>peech
         </h1>
 
 
         <p class="font-weight-bold">Type some speech below and press <i class="text-danger f-1 fa fa-volume-down"></i> button to hear it.</p>
-        <form action="#">
+        <form action="#" id="snpForm">
             <textarea class="txt form-control form-control-lg mt-5 mb-5" placeholder="Type anything.."></textarea>
 
 
@@ -263,7 +271,7 @@
             speechSynthesis.onvoiceschanged = populateVoiceList;
         }
 
-        inputForm.onsubmit = function (event) {
+        inputForm.onsubmit = function speech(event) {
             event.preventDefault();
             if (inputText.value !== "") {
                 var wave = document.querySelector(".wave")
@@ -304,7 +312,60 @@
         }
 
 
+        
 
+    </script>
+    
+    
+    <script>
+        
+        
+        function information(){
+            
+            alert("Author: MWD.WORLD url:https://mwd.world Note: This app uses the Web Speech API which is experimental and may not fully work in some versions of certain browsers. MWD Text-to-Speech is an application that allows people to listen to printed material, read aloud by synthesised voice or human recorded voice. The Web Speech API allows you to read computer-based text using digitalised speech. You can use it simply for reading trough a PDF or as supportive technology to improve reading skills. For example: The reading comprehension could be improved by listening at the speech, While you can work on reading fluency by reading aloud along the text-to-speech voice also, you can maximise the reading rate by increasing the voice’s rate while reading aloud along the text-to-speech app. The use of this supportive technology is under investigation to see whether it can have a positive impact on people with learning disability. However, there is not enough information that such web App can have a positive impact on people with earning impairment.");
+            
+             inputText.value = "MWD Text-to-Speech is an application that allows people to listen to printed material, read aloud by synthesised voice or human recorded voice. The Web Speech API allows you to read computer-based text using digitalised speech. You can use it simply for reading trough a PDF or as supportive technology to improve reading skills. For example: The reading comprehension could be improved by listening at the speech, While you can work on reading fluency by reading aloud along the text-to-speech voice also, you can maximise the reading rate by increasing the voice’s rate while reading aloud along the text-to-speech app. The use of this supportive technology is under investigation to see whether it can have a positive impact on people with learning disability. However, there is not enough information that such web App can have a positive impact on people with earning impairment."
+            
+           document.forms["snpForm"].submit() = true;
+            inputForm.onsubmit = function speech(event) {
+            event.preventDefault();
+            if (inputText.value !== "") {
+                var wave = document.querySelector(".wave")
+                wave.style.background = "url(img/wave.gif)"
+            }
+
+            // Get speak text
+            var utterThis = new SpeechSynthesisUtterance(inputText.value);
+           
+            // Speak end
+            utterThis.onend = e => {
+                console.log('Done speaking...');
+                wave.style.background = '#ffffff';
+            };
+            
+            var selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
+            for (i = 0; i < voices.length; i++) {
+                if (voices[i].name === selectedOption) {
+                    utterThis.voice = voices[i];
+                }
+            }
+            utterThis.pitch = pitch.value;
+            utterThis.rate = rate.value;
+            synth.speak(utterThis);
+            utterThis.onpause = function (event) {
+                var char = event.utterance.text.charAt(event.charIndex);
+                console.log('Speech paused at character ' + event.charIndex + ' of "' +
+                    event.utterance.text + '", which is "' + char + '".');
+            }
+            inputText.blur();
+        }
+        }
+        
+        
+       
+        var info = document.querySelector(".info");
+        info.onclick = information;
+        
     </script>
 </body>
 
